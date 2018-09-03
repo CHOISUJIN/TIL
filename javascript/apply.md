@@ -57,6 +57,25 @@ Object
 
 apply()와 call() 메서드를 이용해 this를 특정 객체에 명시적으로 바인딩 시킬 수 있다고 했는데 이 메서드들의 대표적인 용도가 유사 배열 객체에서 배열 메서드를 사용하는 경우이다. 
 
+``` javascript
+var arr = ['abc'];
+var obj = {name: 'sujin', length : 1};
+
+arr.push('def');
+console.log(arr);
+
+Array.prototype.push.apply(obj, ['darong']);
+console.log(obj);
+```
+
+``` javascript
+[실행결과]
+["abc", "def"]
+{1: "darong", name: "sujin", length: 2}
+```
+
+
+
 
 
 
