@@ -63,7 +63,7 @@ container의 item들은 블록요소이기 때문에 기본적으로 수직으�
 
 
 
-![flex](images/flexbox/flexbox3.png)
+   ![flex](images/flexbox/flexbox3.png)
 
 
 
@@ -115,7 +115,7 @@ container의 item들은 블록요소이기 때문에 기본적으로 수직으�
 
 
 
-![flex](images/flexbox/flexbox5.png)
+   ![flex](images/flexbox/flexbox5.png)
 
 
 
@@ -140,7 +140,7 @@ container의 item들은 블록요소이기 때문에 기본적으로 수직으�
 
 
 
-![flex](images/flexbox/flexbox6.png)
+   ![flex](images/flexbox/flexbox6.png)
 
 
 
