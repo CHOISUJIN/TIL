@@ -32,6 +32,8 @@
 
 자바스크립트는 문서 노드를 Document 타입으로 표현함. Document 객체를 이용해 html의 구조등을 조작할 수 있다.
 
+
+
 - 문서에 대한 정보 얻기
 
   ``` javascript
@@ -42,7 +44,9 @@
   var url = document.url				// url 정보 가져옴
   ```
 
-  
+
+
+
 
 - 요소 선택하기
 
@@ -76,6 +80,8 @@
 
 
 
+
+
 - 문서에 작성하기
 
   ``` html
@@ -96,11 +102,29 @@
   </html>
   ```
 
-  
+
+
+
 
 #### Element 타입
 
-Element 타입은 태그 이름이나 자식, 속성 같은 정보에 접근 가능하다. 
+Element 타입은 태그 이름이나 자식, 속성 같은 정보에 접근 가능하다.  
+
+``` html
+<script>
+	var p = document.getElementById("p-title");
+    console.log(p.tagName);			// p
+    console.log(p.nodeName);		// p
+</script>
+
+'''
+<body>
+    <p id="p-title"> Hello !! </p>
+    <div name="div1"> 안녕하세요 </div>
+    <div name="div2"> 안녕하세요2 </div>
+</body>
+'''
+```
 
 
 
