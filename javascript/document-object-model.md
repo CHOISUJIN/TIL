@@ -128,3 +128,54 @@ Element 타입은 태그 이름이나 자식, 속성 같은 정보에 접근 가
 
 
 
+- HTML 요소의 정보에 접근방법
+
+  ``` html
+  
+  <script>
+  	var div = document.getElementById("myDiv");
+      
+      // 정의된 객체 프로퍼티로 접근
+      console.log(div.id);		    // myDiv
+      console.log(div.className);		// box
+      console.log(div.title);			// div
+      
+      // getAtrribute()로 접근
+      console.log(div.getAttribute("id"));
+      console.log(div.getAttribute("class"));
+      console.log(div.getAttribute("title"));
+      
+      // 두 접근방법의 차이점
+      
+      // 1. 커스텀 속성 접근
+      console.log(div.myAttribute);					// undefined
+      console.log(div.getAttribute("myAttribute"));	 // hello
+      
+      // 2. style과 onclick 반환값
+      console.log(div.style);				  	// CSSStyleDeclaration 객체반환
+      onsole.log(div.getAttribute("style")); 	 // text-align:center; 텍스트반환
+  </script>
+  
+  '''
+  <body>
+     <div class="box" id="myDiv" title="div" myAttribute="hello"  style="text-align:center;"></div>
+  </body>
+  '''
+  
+  ```
+
+  
+
+- 요소를 생성하는 방법
+
+  ``` javascript
+  // 첫번째방법
+  var div = document.createElement("div");
+  div.id = "myNewDiv";
+  div.className = "box";
+  document.body.appendChild(div);
+  
+  // 두번째방법
+  ```
+
+  
