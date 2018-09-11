@@ -98,6 +98,37 @@ obj.sayHello();
 
 ES5 에서 객체 리터럴을 상속하기 위해선 Object.create() 함수를 사용한다.  반면 ES6에서는 직접 객체 리터널 내부에서 `__proto__` 프로퍼티를 설정할 수 있다. 
 
+``` javascript
+// ES5
+var parent = {
+    name : 'sujin',
+    sayHello: function() {
+        console.log('Hello ' + this.name);
+    }    
+}
+
+var child = Object.create(parent);
+
+child.name = 'woonbi';
+child.sayHello();			// Hello woonbi
+```
+
+``` javascript
+// ES6
+let parent = {
+    name : 'sujin',
+    sayHello() {
+        console.log('Hello ' + this.name);
+    }    
+}
+
+let child = {
+    __proto__ : parent,
+    name : 'woonbi'
+}
+
+child.sayHello();			// Hello woonbi
+```
 
 
 
@@ -117,5 +148,3 @@ ES5 에서 객체 리터럴을 상속하기 위해선 Object.create() 함수를 
 
 
 
-
-참고 https://poiemaweb.com/es6-arrow-function
