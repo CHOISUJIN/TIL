@@ -67,9 +67,53 @@ console.log(result); 			// [2,6,10]
 
 
 
-### 화살표 함수의 this
+### 화살표 함수와 일반함수의 this
 
-자신만의 this를 생성하지 않고 자신을 포함하고 있는 상위 context의 this를 이어받는다.  
+``` javascript
+function Prefixer(prefix) {
+  this.prefix = prefix;
+}
+
+Prefixer.prototype.prefixArray = function (arr) {
+  // (A)
+  return arr.map(function (x) {
+    return this.prefix + ' ' + x; 	// (B)
+  });
+};
+
+var pre = new Prefixer('Hi');
+console.log(pre.prefixArray(['Lee', 'Choi']));
+```
+
+위 예제의 출력결과는 어떻게 될까?  출력결과는 아래와 같다. 
+
+``` javascript
+[출력 결과]
+["undefined Lee", "undefined Choi"]
+```
+
+왜냐하면 생성자 함수와 객체의 메서드를 제외한 모든 함수 내부의 this는 전역 객체를 가리키기때문이다.  그렇다면 위 예제를 화살표 함수로 바꿔보면 어떻게 출력될까?
+
+``` javascript
+function Prefixer(prefix) {
+  this.prefix = prefix;
+}
+
+Prefixer.prototype.prefixArray = function (arr) {
+  return arr.map(x => `${this.prefix}  ${x}`);
+};
+
+const pre = new Prefixer('Hi');
+console.log(pre.prefixArray(['Lee', 'Choi']));
+```
+
+``` javascript
+[출력 결과]
+
+["Hi  Lee", "Hi  Choi"]
+```
+
+화살표 함수는 자신만의 this를 생성하지 않고 자신을 포함하고 있는 상위 context의 this를 이어받는다.  화살표 함수는 this의 스코프를 바꾸고 싶지 않을 때 유용하다. 
 
 
 
@@ -81,9 +125,7 @@ console.log(result); 			// [2,6,10]
 
 
 
-
-
-
+참고 https://poiemaweb.com/es6-arrow-function
 
 
 
